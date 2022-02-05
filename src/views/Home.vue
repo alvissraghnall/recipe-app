@@ -59,12 +59,12 @@ export default class Home extends Vue {
   }
 
   &-sm {
-    background-image: url("../assets/bg-sm.jpg");
+    background-image: url("../assets/sm-03.jpg");
 
     &-intro {
       position: absolute;
       text-align: center;
-      color: cyan;
+      color: white;
       top: 70%;
       left: 40%;
       transform: translate(-40%, -70%);
@@ -85,6 +85,10 @@ export default class Home extends Vue {
     &-sm-intro {
       display: none;
     }
+  }
+  i.material-icons.mdc-button__icon:global() {
+    font-size: 3em !important;
+    background: black !important;
   }
 }
 </style>
