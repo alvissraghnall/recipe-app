@@ -4,7 +4,7 @@
       <h3 :class="$tt('headline3')" class="headline-main" style="top: 70%;"> Cooking Experience Like A Chef </h3>
       <h6 :class="$tt('overline')"> Let's make a delicious dish with the best recipe for the family. </h6>
 
-      <ui-button icon="arrow_circle_right" :class="$tt('button')" style="background: green; color: white; height: 40px; border-radius: 32px; padding: 26px;"> Get Started </ui-button>
+      <ui-button @click="this.getStarted()" icon="arrow_circle_right" :class="$tt('button')" style="background: green; color: white; height: 40px; border-radius: 32px; padding: 26px;"> Get Started </ui-button>
     </div>
   </div>
 </template>
@@ -33,6 +33,9 @@ export default class Home extends Vue {
 
   public beforeDestroy(){
     window.removeEventListener("resize", this.handleResize);
+  }
+  public getStarted(){
+    this.$router.push("/get-started");
   }
 }
 </script>
