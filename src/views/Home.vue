@@ -4,7 +4,12 @@
       <h3 :class="$tt('headline3')" class="headline-main" style="top: 70%;"> Cooking Experience Like A Chef </h3>
       <h6 :class="$tt('overline')"> Let's make a delicious dish with the best recipe for the family. </h6>
 
-      <ui-button @click="this.getStarted()" icon="arrow_circle_right" :class="$tt('button')" style="background: green; color: white; height: 40px; border-radius: 32px; padding: 26px;"> Get Started </ui-button>
+      <ui-button @click="this.getStarted()" :class="$tt('button')" style="background: green; color: white; height: 40px; border-radius: 32px; padding: 26px;">
+        <template #before>
+          <ui-icon class="icon" :size="36">arrow_circle_right</ui-icon>
+        </template>
+        Get Started 
+      </ui-button>
     </div>
   </div>
 </template>
@@ -24,7 +29,7 @@ export default class Home extends Vue {
     window.addEventListener("resize", this.handleResize);
   }
 
-  public handleResize(){
+  public handleResize(): void {
     console.log(this.windowWidth, "\n=====\n");
     this.windowWidth = window.innerWidth;
     this.isMobile = this.windowWidth < 800;
@@ -34,13 +39,13 @@ export default class Home extends Vue {
   public beforeDestroy(){
     window.removeEventListener("resize", this.handleResize);
   }
-  public getStarted(){
+  public getStarted(): void{
     this.$router.push("/get-started");
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 //
 // @use '@material/button/button-shared-theme' with (
 //   $height: 45px,
@@ -73,6 +78,10 @@ export default class Home extends Vue {
       transform: translate(-40%, -70%);
     }
   }
+}
+
+.icon {
+  margin-right: 5px;
 }
 
 .headline-main {
