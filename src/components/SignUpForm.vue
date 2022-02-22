@@ -81,6 +81,7 @@ export default class SignUpForm extends Vue {
     isVisible: true,
   };
 
+  // eslint-disable-next-line prettier/prettier
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   private login() {}
 }
