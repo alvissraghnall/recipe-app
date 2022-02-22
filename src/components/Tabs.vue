@@ -32,7 +32,7 @@
 
 ul {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 0;
     list-style-type: none;
 }
