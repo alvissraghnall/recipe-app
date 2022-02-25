@@ -1,4 +1,4 @@
-<template>
+<template class="">
   <ui-form
     type="|"
     item-margin-bottom="16"
