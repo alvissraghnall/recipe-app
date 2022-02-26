@@ -1,14 +1,28 @@
 <template>
   <div class="home" :class="isMobile ? 'home-sm' : 'home-lg'">
-    <div class="home-sm-intro">
-      <h3 :class="$tt('headline3')" class="headline-main" style="top: 70%;"> Cooking Experience Like A Chef </h3>
-      <h6 :class="$tt('overline')"> Let's make a delicious dish with the best recipe for the family. </h6>
+    <div :class="isMobile ? 'home-sm-intro' : 'home-lg-intro'">
+      <h3 :class="$tt('headline3')" class="headline-main" style="top: 70%">
+        Cooking Experience Like A Chef
+      </h3>
+      <h6 :class="$tt('overline')">
+        Let's make a delicious dish with the best recipe for the family.
+      </h6>
 
-      <ui-button @click="this.getStarted()" :class="$tt('button')" style="background: green; color: white; height: 40px; border-radius: 32px; padding: 26px;">
+      <ui-button
+        @click="this.getStarted()"
+        :class="$tt('button')"
+        style="
+          background: green;
+          color: white;
+          height: 40px;
+          border-radius: 32px;
+          padding: 26px;
+        "
+      >
         <template #before>
           <ui-icon class="icon" :size="36">arrow_circle_right</ui-icon>
         </template>
-        Get Started 
+        Get Started
       </ui-button>
     </div>
   </div>
@@ -17,16 +31,22 @@
 <script lang="ts">
 import { Vue, Options } from "vue-class-component";
 import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
-@Options({
-
-})
+@Options({})
 export default class Home extends Vue {
-  message = "Hello"
+  message = "Hello";
   public windowWidth: number = window.innerWidth;
-  public isMobile = true;
+  public isMobile = this.windowWidth < 800;
+  private homeIntro = {
+    "home-sm-intro": this.isMobile,
+    "home-lg-intro": !this.isMobile
+  };
 
-  public mounted(){
+  public mounted() {
     window.addEventListener("resize", this.handleResize);
+    setInterval(() => {
+      console.log(this.isMobile);
+      
+    }, 7000);
   }
 
   public handleResize(): void {
@@ -36,10 +56,10 @@ export default class Home extends Vue {
     console.log(this.windowWidth);
   }
 
-  public beforeDestroy(){
+  public beforeDestroy(): void {
     window.removeEventListener("resize", this.handleResize);
   }
-  public getStarted(): void{
+  public getStarted(): void {
     this.$router.push("/get-started");
   }
 }
@@ -64,6 +84,15 @@ export default class Home extends Vue {
 
   &-lg {
     background-image: url("../assets/bg-lg.jpg");
+
+    &-intro {
+      display: block;
+      float: right;
+      text-align: right;
+      position: relative;
+      top: 50%;
+      color: white;
+    }
   }
 
   &-sm {
@@ -96,6 +125,13 @@ export default class Home extends Vue {
 
     &-sm-intro {
       display: none;
+    }
+
+    &-lg-intro {
+      float: right;
+      text-align: center;
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
     }
   }
   i.material-icons.mdc-button__icon:global() {
