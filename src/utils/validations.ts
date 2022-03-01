@@ -1,4 +1,4 @@
-const validations = {
+export const validations = {
     email: {
         label: "Email",
         validator: "required, email",
@@ -25,7 +25,19 @@ const validations = {
             message: "%s minLength >= 8",
         },
     },
+    rePassword: {
+        label: "Confirm Password",
+        validator: "required, password, rePasswordRule",
+        rePasswordRule: {
+            validate(value: string, data: { password: string}){
+                return value === data.password;
+            },
+            message: 'Passwords do not match.'
+        }
+    },
+    gender: {
+        label: "Gender",
+        validator: 'required'
+    }
 };
 
-
-export default validations;

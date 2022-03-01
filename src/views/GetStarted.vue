@@ -47,9 +47,10 @@ export default class GetStarted extends Vue {
 </script>
 
 <style lang="scss">
+
 .get-started {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-image: url("../assets/sm-05.jpg") !important;
 }
 

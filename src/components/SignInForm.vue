@@ -66,7 +66,7 @@
 
 <script lang="ts">
 import { Vue, Options } from "vue-class-component";
-import validations from "../utils/validations";
+import {validations} from "../utils/validations";
 import { useValidator, helpers } from "balm-ui";
 
 @Options({
@@ -88,7 +88,7 @@ export default class SignInForm extends Vue {
     helperText: true,
     isVisible: true,
   };
-  private messages = [];
+  private messages: string[] = [];
   private register() {
     let result = this.balmUI.validate(this.formData);
     let { valid, messages } = result;
@@ -117,4 +117,8 @@ export default class SignInForm extends Vue {
 }
 </script>
 
-<style></style>
+<style>
+  .mdc-form--vertical .mdc-form__item {
+    align-items: center !important;
+  }
+</style>
