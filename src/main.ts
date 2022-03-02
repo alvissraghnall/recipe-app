@@ -5,8 +5,9 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import BalmUI from "balm-ui";
+import BalmUINext from "balm-ui/dist/balm-ui-next";
 // import BalmUIPlus from "balm-ui-plus";
 import "balm-ui-css";
 
 
-createApp(App).use(router).use(BalmUI).use(store).mount("#app");
+createApp(App).use(router).use(BalmUI).use(BalmUINext).use(store).mount("#app");

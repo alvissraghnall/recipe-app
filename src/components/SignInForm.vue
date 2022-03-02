@@ -1,72 +1,76 @@
 <template class="">
-  <ui-form
-    type="|"
-    item-margin-bottom="16"
-    action-align="center"
-    style="text-align: center"
-  >
-    <template #default="{ actionClass }">
-      <ui-form-field class="form-item">
-        <ui-textfield
-          v-model="this.formData.email"
-          required
-          outlined
-          helper-text-id="email-valid-msg"
-          input-type="email"
-        >
-          Email Address
-        </ui-textfield>
-        <ui-textfield-helper
-          id="email-valid-msg"
-          :visible="this.controls.isVisible"
-          v-if="this.controls.helperText"
-        >
-          Must be like me@example.com
-        </ui-textfield-helper>
-      </ui-form-field>
-      <ui-form-field class="form-item">
-        <ui-textfield
-          v-model="this.formData.password"
-          input-type="password"
-          required
-          outlined
-          pattern=".{8,}"
-          helper-text-id="pwd-val-msg"
-          :attrs="{ autocomplete: 'current-password' }"
-        >
-          Password
-        </ui-textfield>
-        <ui-textfield-helper id="pwd-val-msg" visible validMsg>
-          Must be at least 8 characters long.
-        </ui-textfield-helper>
-      </ui-form-field>
-      <div class="mdc-alert mdc-alert--error" v-if="messages.length">
-        <i class="material-icons md-error-icon mdc-alert__icon"> cancel </i>
-        <div class="mdc-alert__content">
-          <ul>
-            <li v-for="(message, index) in messages" :key="index">
-              {{ message }}
-            </li>
-          </ul>
-        </div>
-        <!---->
-      </div>
-      <!-- <ui-alert v-if="messages.length" state="error">
-                <ul>
-                <li v-for="(message, index) in messages" :key="index">{{ message }}</li>
-                </ul>
-          </ui-alert> -->
-      <ui-form-field :class="actionClass">
-        <ui-button raised @click="this.register()">Submit</ui-button>
-        <!-- <ui-button outlined>Cancel</ui-button> -->
-      </ui-form-field>
-    </template>
-  </ui-form>
+  <ui-grid class="demo-grid max-width">
+    <ui-grid-cell class="demo-cell" columns="12">
+      <ui-form
+        type="|"
+        item-margin-bottom="16"
+        action-align="center"
+        style="text-align: center"
+      >
+        <template #default="{ actionClass }">
+          <ui-form-field class="form-item">
+            <ui-textfield
+              v-model="this.formData.email"
+              required
+              outlined
+              helper-text-id="email-valid-msg"
+              input-type="email"
+            >
+              Email Address
+            </ui-textfield>
+            <ui-textfield-helper
+              id="email-valid-msg"
+              :visible="this.controls.isVisible"
+              v-if="this.controls.helperText"
+            >
+              Must be like me@example.com
+            </ui-textfield-helper>
+          </ui-form-field>
+          <ui-form-field class="form-item">
+            <ui-textfield
+              v-model="this.formData.password"
+              input-type="password"
+              required
+              outlined
+              pattern=".{8,}"
+              helper-text-id="pwd-val-msg"
+              :attrs="{ autocomplete: 'current-password' }"
+            >
+              Password
+            </ui-textfield>
+            <ui-textfield-helper id="pwd-val-msg" visible validMsg>
+              Must be at least 8 characters long.
+            </ui-textfield-helper>
+          </ui-form-field>
+          <div class="mdc-alert mdc-alert--error" v-if="messages.length">
+            <i class="material-icons md-error-icon mdc-alert__icon"> cancel </i>
+            <div class="mdc-alert__content">
+              <ul>
+                <li v-for="(message, index) in messages" :key="index">
+                  {{ message }}
+                </li>
+              </ul>
+            </div>
+            <!---->
+          </div>
+          <!-- <ui-alert v-if="messages.length" state="error">
+                    <ul>
+                    <li v-for="(message, index) in messages" :key="index">{{ message }}</li>
+                    </ul>
+              </ui-alert> -->
+          <ui-form-field :class="actionClass">
+            <ui-button raised @click="this.register()">Submit</ui-button>
+            <!-- <ui-button outlined>Cancel</ui-button> -->
+          </ui-form-field>
+        </template>
+      </ui-form>
+    </ui-grid-cell>
+  </ui-grid>
 </template>
 
 <script lang="ts">
 import { Vue, Options } from "vue-class-component";
-import {validations} from "../utils/validations";
+import {signinValidations} from "../utils/validations";
 import { useValidator, helpers } from "balm-ui";
 
 @Options({
@@ -79,7 +83,7 @@ import { useValidator, helpers } from "balm-ui";
 })
 export default class SignInForm extends Vue {
   private balmUI = useValidator();
-  private validations = validations;
+  private validations = signinValidations;
   private formData = {
     email: "",
     password: "",

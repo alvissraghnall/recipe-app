@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import Home from "../views/Home.vue";
-import NotFound from "../views/NotFound.vue";
-import GetStarted from "../views/GetStarted.vue";
+import Home from "@/views/Home.vue";
+import NotFound from "@/views/NotFound.vue";
+import GetStarted from "@/views/GetStarted.vue";
+import Dashboard from "@/views/Dashboard.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -22,6 +23,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/get-started",
     name: "GetStarted",
     component: GetStarted
+  },
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    component: Dashboard
   },
   {
     path: "/:catchAll(.*)",

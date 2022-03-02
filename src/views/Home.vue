@@ -4,13 +4,14 @@
       <h3 :class="$tt('headline3')" class="headline-main" style="top: 70%">
         Cooking Experience Like A Chef
       </h3>
-      <h6 :class="$tt('overline')">
+      <h6 :class="$tt('overline')" class="hl-sec">
         Let's make a delicious dish with the best recipe for the family.
       </h6>
 
       <ui-button
         @click="this.getStarted()"
         :class="$tt('button')"
+        class="buxton"
         style="
           background: green;
           color: white;
@@ -84,14 +85,16 @@ export default class Home extends Vue {
 
   &-lg {
     background-image: url("../assets/bg-lg.jpg");
+    // transition: all 4s ease-in-out;
+    // animation: bigbg 8s linear infinite;
 
     &-intro {
       display: block;
       float: right;
       text-align: right;
       position: relative;
-      top: 50%;
-      color: white;
+      top: 55%;
+      margin-right: 10px;
     }
   }
 
@@ -138,5 +141,29 @@ export default class Home extends Vue {
     font-size: 3em !important;
     background: black !important;
   }
+
+  .headline-main {
+    margin-right: 17px !important;
+    color: rgb(16, 82, 168);
+    
+  }
+
+  .hl-sec {
+    color: rgb(15, 57, 170);
+    font-weight: 600;
+    font-size: .7em;
+    // float: right;
+  }
+
+  .buxton {
+    // float: right;
+    background-color: blue;
+  }
 }
+
+// @keyframes bigbg {
+//   from {
+
+//   }
+// }
 </style>

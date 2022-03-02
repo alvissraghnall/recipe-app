@@ -5,10 +5,10 @@
         <template #default="{ actionClass }">
           <ui-form-field class="form-item">
             <ui-textfield
-              v-model="this.formData.firstName"
+              v-model="this.formData.name"
               required
               outlined
-              helper-text-id="name-valid-msg"
+              helper-text-id="name-val-msg"
               input-type="text"
             >
               Full Name
@@ -18,7 +18,7 @@
               :visible="this.controls.isVisible"
               v-if="this.controls.helperText"
             >
-              Must have at least 2 characters
+              Must have at least 3 characters
             </ui-textfield-helper>
           </ui-form-field>
           <ui-form-field class="form-item">
@@ -106,7 +106,7 @@
 
 <script lang="ts">
 import { Vue, Options } from "vue-class-component";
-import {validations} from "../utils/validations";
+import {signupValidations} from "../utils/validations";
 import { useValidator, helpers, useToast } from "balm-ui";
 
 
@@ -121,10 +121,14 @@ import { useValidator, helpers, useToast } from "balm-ui";
 })
 export default class SignUpForm extends Vue {
   private balmUI = useValidator();
-  private validations = validations;
+  private validations = signupValidations;
   private $toast = useToast();
   private messages: string[] = [];
   private genderOptions = [
+    {
+      label: "Prefer not to speak",
+      value: "U"
+    },
     {
       label: "Male",
       value: "M"
@@ -133,10 +137,11 @@ export default class SignUpForm extends Vue {
       label: "Female",
       value: "F"
     }
+    
   ]
   private formData = {
-    firstName: "",
-    lastName: "",
+    // firstName: "",
+    // lastName: "",
     name: "",
     email: "",
     password: "",
@@ -164,6 +169,10 @@ export default class SignUpForm extends Vue {
 </script>
 
 <style>
+.mdc-text-field.mdc-text-field--outlined {
+
+  width: 100%;
+}
   /* .pwd-field {
     margin-left: 15px;
   } */
