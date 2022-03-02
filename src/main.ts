@@ -10,4 +10,4 @@ import BalmUINext from "balm-ui/dist/balm-ui-next";
 import "balm-ui-css";
 
 
-createApp(App).use(router).use(BalmUI).use(BalmUINext).use(store).mount("#app");
+createApp(App).use(router).use(BalmUI).use(store).mount("#app");

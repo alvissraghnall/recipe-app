@@ -1,11 +1,17 @@
 <template>
   <div class="content">
+    Back
     <ui-bottom-navigation content-selector=".container" stacked>
+      <ui-panels v-model="this.active">
+        <ui-panel>Panel 1</ui-panel>
+        <ui-panel>Panel 2</ui-panel>
+        <ui-panel>Panel 3</ui-panel>
+        <ui-panel>Panel 4</ui-panel>
+      </ui-panels>
       <ui-tabs
-        v-model="active"
+        v-model="this.active"
         type="iconOnly"
         :items="this.items"
-        @change="onChange"
         stacked
       >
       </ui-tabs>
@@ -16,34 +22,38 @@
 <script lang="ts">
 import { Vue, Options } from "vue-class-component";
 
-@Options({
-
-})
+@Options({})
 export default class Dashboard extends Vue {
-    private items = [
-        {
-            icon: "home",
-            url: ""
-        },
-        {
-            icon: "fibre_new",
-            url: ""
-        },
-        {
-            icon: "music_note",
-            url: ""
-        },
-        {
-            icon: "place",
-            url: ""
-        },
-    ];
-    private active = 1;
+  private items = [
+    {
+      icon: "home",
+      url: "",
+    },
+    {
+      icon: "fibre_new",
+      url: "",
+    },
+    {
+      icon: "music_note",
+      url: "",
+    },
+    {
+      icon: "place",
+      url: "",
+    },
+  ];
+  private active = 1;
 
-    private onChange(active: number) {
-        console.log(active);
-        
-    }
+  mounted(){
+      console.log(this.active);
+      
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+//   private onChange(_e: Event) {
+//     // this.active = active;
+//     console.log(this.active);
+//   }
 }
 </script>
 
