@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  @apply font-poppins;
+}
+
+/* 
+body {
+  margin: 0;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  max-width: 100vw;
+  overflow-x: clip;
+} */
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+
+.button {
+  @apply flex capitalize justify-center items-center border-none text-white/95 rounded-lg bg-gradient-to-r to-yellow-600 from-yellow-400 transition-all duration-150 ease-in-out cursor-pointer hover:text-yellow-500 hover:bg-[transparent] hover:border-[2px] hover:border-solid hover:border-yellow-500;
+}
+
+.button:hover {
+  background: transparent;
+}
