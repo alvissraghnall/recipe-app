@@ -13,7 +13,7 @@
     "@vueuse/head": "^1.0.25",
     "@vueuse/motion": "^2.0.0-beta.12",
     "oh-vue-icons": "^1.0.0-rc3",
-    "swiper": "^9.0.5",
+    "swiper": "^9.2.4",
     "vue": "^3.2.45",
     "vue-router": "4",
     "vuex": "^4.0.2"
